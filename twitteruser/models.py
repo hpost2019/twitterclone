@@ -8,3 +8,7 @@ class TwitterUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+    @property
+    def displayname(self):
+        return self.first_name + " " + self.last_name
