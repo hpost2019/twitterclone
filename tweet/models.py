@@ -9,4 +9,4 @@ class Tweets(models.Model):
     user = models.ForeignKey(TwitterUser, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.text + ' User:' + self.user.username
+        return self.text

@@ -9,6 +9,4 @@ class Notifications(models.Model):
         TwitterUser, on_delete=models.CASCADE)
 
     def __str__(self):
-        return (
-            self.notification_tweet.id + " " + self.notification_tweet.text
-        )
+        return self.notification_tweet.text

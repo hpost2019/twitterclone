@@ -10,7 +10,7 @@
                 <h4>@{{user_info.username}}</h4>
               <p class="card-text">
                   <br/>
-                  Followed: {{followed_count}}<br/>
+                  Following: {{followed_count}}<br/>
                   Total Tweets: {{tweet_count}}<br/>
               </p>
               
@@ -19,7 +19,7 @@
     </div>
     <div class="col-6">
         <h2>What's happening in your world?</h2>
-        {% include "tweets.html" %}
+        {% include template_name %}
     </div>
   </div>
 
