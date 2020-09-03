@@ -10,7 +10,3 @@ class Tweets(models.Model):
 
     def __str__(self):
         return self.text + ' User:' + self.user.username
-
-    @property
-    def display_tweet(self):
-        return '@'+self.user.username+'-'+self.posted_on

@@ -33,10 +33,19 @@
               {% endif %}
                   href="/"> <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
           </div>
+          <div class="navbar-nav">
+            <a 
+              {% if request.path == '/signup/' %}  
+                  class="nav-link active" 
+              {% else %}
+                  class="nav-link"
+              {% endif %}
+                  href="/signup/"> <i class="fas fa-user-plus"></i> Signup <span class="sr-only">(current)</span></a>
+          </div>
           {% if request.user.is_authenticated %}
           <ul class="nav navbar-nav" style="position: absolute; left: 50%; transform: translatex(-50%);">
             <li class="nav-item" style="padding-right: 5px;">
-              <a href="/add_tweet/" class="btn btn-primary"><i class="far fa-plus-square"></i> Tweet!</a>
+              <a href="/addtweet/" class="btn btn-primary"><i class="far fa-plus-square"></i> Tweet!</a>
             </li>
             <li class="nav-item" style="padding-right: 5px;">
               <a href="/notifications/{{user_info.id}}/" class="btn btn-primary"><i class="far fa-bell"></i> Notifications({{notif_count}})</a>

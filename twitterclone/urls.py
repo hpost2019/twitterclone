@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from authentication import views as authviews
 from tweet import views as tweetviews
+from twitteruser import views as profileviews
 
 urlpatterns = [
-    path('', tweetviews.index_view, name="home"),
+    path('', profileviews.index_view, name="home"),
+    path('addtweet/', tweetviews.add_tweet_view),
     path('login/', authviews.login_view),
     path('signup/', authviews.signup_view),
     path('logout/', authviews.logout_view),
