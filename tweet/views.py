@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth.decorators import login_required
 from .forms import AddTweetForm
 from .models import Tweets
+from .helpers import parse_tweet
 
 
 @login_required
@@ -10,10 +11,11 @@ def add_tweet_view(request):
         form = AddTweetForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            Tweets.objects.create(
+            tweet = Tweets.objects.create(
                 text=data.get("text"),
                 user=request.user
             )
+            parse_tweet(tweet)
             return HttpResponseRedirect(reverse("home"))
     form = AddTweetForm()
     return render(request, "generic_form.html", {

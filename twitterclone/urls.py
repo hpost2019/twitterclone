@@ -22,11 +22,13 @@ from twitteruser import views as profileviews
 urlpatterns = [
     path('', profileviews.index_view, name="home"),
     path('addtweet/', tweetviews.add_tweet_view),
-    path('<str:user_username>/', profileviews.profile_view),
-    path('<str:user_username>/follow/', profileviews.follow_view),
-    path('<str:user_username>/unfollow', profileviews.unfollow_view),
+    path('notifications/<str:user_username>/', profileviews.notification_view),
+    path('tweet_detail/<int:tweet_id>/', profileviews.tweet_view),
     path('login/', authviews.login_view),
     path('signup/', authviews.signup_view),
     path('logout/', authviews.logout_view),
     path('admin/', admin.site.urls),
+    path('<str:user_username>/', profileviews.profile_view),
+    path('<str:user_username>/follow/', profileviews.follow_view),
+    path('<str:user_username>/unfollow', profileviews.unfollow_view),
 ]
